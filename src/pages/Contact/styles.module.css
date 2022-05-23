@@ -1,0 +1,14 @@
+.contactContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  /* align-items: center; */
+}
+
+.sectionContainer {
+  /* width: 25rem; */
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
