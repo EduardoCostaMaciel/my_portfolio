@@ -9,6 +9,12 @@ body {
   display: flex;
   min-height: 100vh;
   background-color: #282c34;
+  background: url('/src/images/background_img/cool-background.png');
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+  color: #4187f6;
+  /* color: #282c34; */
 }
 
 code {

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
-import homeUrl from '../../images/home.svg';
-import aboutUrl from '../../images/about.svg';
-import contactUrl from '../../images/contact.svg';
-import projectsUrl from '../../images/project.svg';
-import feedbackUrl from '../../images/feedback.svg';
+import menuUrl from '../../images/nav_icons/menu.svg';
+import closeUrl from '../../images/nav_icons/close.svg';
+import homeUrl from '../../images/nav_icons/home.svg';
+import aboutUrl from '../../images/nav_icons/about.svg';
+import contactUrl from '../../images/nav_icons/contact.svg';
+import projectsUrl from '../../images/nav_icons/project.svg';
+import feedbackUrl from '../../images/nav_icons/feedback.svg';
 import { Link, useLocation } from 'react-router-dom';
 
 const navBar = [
@@ -45,29 +47,58 @@ const navBar = [
   },
 ];
 
-
 export function NavBar() {
   const LOCATION = useLocation();
+  const [isMenuActive, setIsMenuActive] = useState(false);
+
+  const handleClickMenuActive = () => setIsMenuActive(true);
+  const handleClickMenuClose = () => setIsMenuActive(false);
 
   return (
-    <nav className={styles.header}>
-      <ul>
-        {navBar.map((nav) => {
-          return (
-            <li
-              key={nav.title}
-              className={ LOCATION.pathname === `/${nav.title}` ? styles.active : null }
-            >
-              <Link
-                to={ `/${nav.title }` }
-                className={ LOCATION.pathname === `/${nav.title}` ? styles.linkActive : styles.link }
+    <nav className={ styles.containerNav }>
+      <button
+        type='button'
+        className={ styles.buttonMenu }
+        // onClick={ () => handleClick() }
+        onClick={ isMenuActive ? handleClickMenuClose : handleClickMenuActive }
+      >
+        <img
+          src={ isMenuActive ? closeUrl : menuUrl }
+          alt='Icone do meno'
+          className={ styles.iconMenu }
+        />
+      </button>
+      <ul
+        className={ isMenuActive ? styles.containerNavActive : styles.containerItemsNav }
+      >
+        {navBar.map((nav) =>
+          <li
+          key={ nav.title }
+          className={
+            LOCATION.pathname === `/${ nav.title }` ? styles.itemNav : null
+          }
+          >
+            <Link
+              to={ `/${ nav.title }` }
+              className={ styles.link }
               >
-                <img className={styles.icon} src={nav.image.source} alt={nav.image.alt} />
-                <span className={styles.title} >{nav.title}</span>
-              </Link>
-            </li>
-          )
-        })}
+              <img
+                alt={ nav.image.alt }
+                src={ nav.image.source }
+                className={
+                  LOCATION.pathname === `/${ nav.title }` ? styles.iconBackground : styles.icon
+                }
+                />
+            </Link>
+            <span
+              className={
+                LOCATION.pathname ===`/${ nav.title }` ? styles.titleAnimation : styles.title
+              }
+            >
+              { nav.title }
+            </span>
+          </li>
+        )}
       </ul>
     </nav>
   );
