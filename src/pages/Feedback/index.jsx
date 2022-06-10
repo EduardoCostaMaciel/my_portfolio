@@ -7,9 +7,8 @@ export function Feedback () {
     <div className={ styles.feedbackContainer }>
       <NavBar />
       <section className={ styles.sectionContainer }>
-        <h1>
-          Feedback
-        </h1>
+        <h1>Feedback</h1>
+        <h3>Em breve</h3>
       </section>
     </div>
   );

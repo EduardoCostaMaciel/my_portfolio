@@ -7,9 +7,8 @@ export function Contact () {
     <div className={ styles.contactContainer }>
       <NavBar />
       <section className={ styles.sectionContainer }>
-        <h1>
-          Contact
-        </h1>
+        <h1>Contact</h1>
+        <h3>Em breve</h3>
       </section>
     </div>
   );

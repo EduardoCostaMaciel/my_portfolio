@@ -7,9 +7,8 @@ export function Project () {
     <div className={ styles.projectContainer }>
       <NavBar />
       <section className={ styles.sectionContainer }>
-        <h1>
-          Projects
-        </h1>
+        <h1>Projects</h1>
+        <h3>Em breve</h3>
       </section>
     </div>
   );
