@@ -9,8 +9,9 @@ import { Project } from './pages/Project';
 
 export function App() {
   return (
-      <Routes className="App">
-      {/* // <Routes> */}
+      // <Routes className="App">
+      <Routes>
+        <Route exact path='/' element={ <Navigate replace to='/my_portfolio' /> } />
         <Route exact path='/my_portfolio' element={ <Navigate replace to='/Home' /> } />
         <Route path='/Home' element={ <Home /> } />
         <Route exact path='/About' element={ <About /> } />
