@@ -1,105 +1,102 @@
 import React, { useState } from 'react';
-import styles from './styles.module.css';
-import menuUrl from '../../images/nav_icons/menu.svg';
-import closeUrl from '../../images/nav_icons/close.svg';
-import homeUrl from '../../images/nav_icons/home.svg';
-import aboutUrl from '../../images/nav_icons/about.svg';
-import contactUrl from '../../images/nav_icons/contact.svg';
-import projectsUrl from '../../images/nav_icons/project.svg';
-import feedbackUrl from '../../images/nav_icons/feedback.svg';
-import { Link, useLocation } from 'react-router-dom';
+import './index.css';
 
-const navBar = [
-  {
-    title: 'Home',
-    image: {
-    source: homeUrl,
-    alt: 'Icone da home',
-    }
-  },
-  {
-    title: 'About',
-    image: {
-      source: aboutUrl,
-      alt: 'Icone do about me',
-    }
-  },
-  {
-    title: 'Contact',
-    image: {
-      source: contactUrl,
-      alt: 'Icone do contact',
-    }
-  },
-  {
-    title: 'Projects',
-    image: {
-      source: projectsUrl,
-      alt: 'Icone do projects',
-    }
-  },
-  {
-    title: 'Feedback',
-    image: {
-      source: feedbackUrl,
-      alt: 'Icone do feedback',
-    }
-  },
-];
+// NavBar
+import { AiFillHome } from 'react-icons/ai';
+import { BsPersonFill } from 'react-icons/bs';
+import { HiCollection } from 'react-icons/hi';
+import { AiFillMessage } from 'react-icons/ai';
+
+// Social Medias
+import { TiSocialLinkedinCircular } from 'react-icons/ti';
+import { DiGithubBadge } from 'react-icons/di';
+
+// Button Menu e Close
+import { HiOutlineMenu } from 'react-icons/hi';
+import { CgClose } from 'react-icons/cg';
 
 export function NavBar() {
-  const LOCATION = useLocation();
-  const [isMenuActive, setIsMenuActive] = useState(false);
-
-  const handleClickMenuActive = () => setIsMenuActive(true);
-  const handleClickMenuClose = () => setIsMenuActive(false);
+  const [isNavActive, setIsNavActive] = useState('#home');
+  const [isMenuActive, setMenuActive] = useState(false);
 
   return (
-    <nav className={ styles.containerNav }>
+    <nav
+      className={ isMenuActive ? 'nav__active' : '' }
+    >
       <button
         type='button'
-        className={ styles.buttonMenu }
-        // onClick={ () => handleClick() }
-        onClick={ isMenuActive ? handleClickMenuClose : handleClickMenuActive }
+        className="buttonMenu"
+        onClick={ () => setMenuActive(!isMenuActive) }
       >
-        <img
-          src={ isMenuActive ? closeUrl : menuUrl }
-          alt='Icone do meno'
-          className={ styles.iconMenu }
-        />
+        { isMenuActive ? <CgClose /> : <HiOutlineMenu /> }
       </button>
-      <ul
-        className={ isMenuActive ? styles.containerNavActive : styles.containerItemsNav }
+      <section
+        className={ isMenuActive ? 'containerItemsNavActive' : 'containerItemsNav' }
       >
-        {navBar.map((nav) =>
-          <li
-          key={ nav.title }
-          className={
-            LOCATION.pathname === `/${ nav.title }` ? styles.itemNav : null
-          }
+        <a
+          href='#home'
+          onClick={ () => setIsNavActive('#home') }
+          className={ isNavActive === '#home' ? 'navActive' : 'link' }
+        >
+          <AiFillHome
+            className={
+              isNavActive === '#home' ? 'linkActive' : ''
+            }
+          />
+        </a>
+        <a
+          href='#about'
+          onClick={ () => setIsNavActive('#about') }
+          className={ isNavActive === '#about' ? 'navActive' : 'link' }
+        >
+          <BsPersonFill
+            className={
+              isNavActive === '#about' ? 'linkActive' : ''
+            }
+          />
+        </a>
+        <a
+          href='#project'
+          onClick={ () => setIsNavActive('#project') }
+          className={ isNavActive === '#project' ? 'navActive' : 'link' }
+        >
+          <HiCollection
+            className={
+              isNavActive === '#project' ? 'linkActive' : ''
+            }
+          />
+        </a>
+        <a
+          href='#contact'
+          onClick={ () => setIsNavActive('#contact') }
+          className={ isNavActive === '#contact' ? 'navActive' : 'link' }
+        >
+          <AiFillMessage
+            className={
+              isNavActive === '#contact' ? 'linkActive' : ''
+            }
+          />
+        </a>
+      </section>
+
+      <section
+        className={ isMenuActive ? 'socialContainerActive' : 'socialContainer' }
+      >
+        <a
+          target='blank'
+          className='link'
+          href='https://www.linkedin.com/in/eduardocostamaciel/'
           >
-            <Link
-              to={ `/${ nav.title }` }
-              className={ styles.link }
-              >
-              <img
-                alt={ nav.image.alt }
-                src={ nav.image.source }
-                className={
-                  LOCATION.pathname === `/${ nav.title }` ? styles.iconBackground : styles.icon
-                }
-                />
-            </Link>
-            <span
-              className={
-                LOCATION.pathname ===`/${ nav.title }` ? styles.titleAnimation : styles.title
-              }
-            >
-              { nav.title }
-            </span>
-          </li>
-        )}
-      </ul>
+          <TiSocialLinkedinCircular />
+        </a>
+        <a
+          target='blank'
+          className='link'
+          href='https://github.com/EduardoCostaMaciel'
+        >
+          <DiGithubBadge />
+        </a>
+      </section>
     </nav>
   );
 }
