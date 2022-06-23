@@ -36,46 +36,30 @@ export function NavBar() {
         <a
           href='#home'
           onClick={ () => setIsNavActive('#home') }
-          className={ isNavActive === '#home' ? 'navActive' : 'link' }
+          className={ isNavActive === '#home' ? 'link__active' : 'link' }
         >
-          <AiFillHome
-            className={
-              isNavActive === '#home' ? 'linkActive' : ''
-            }
-          />
+          <AiFillHome />
         </a>
         <a
           href='#about'
           onClick={ () => setIsNavActive('#about') }
-          className={ isNavActive === '#about' ? 'navActive' : 'link' }
+          className={ isNavActive === '#about' ? 'link__active' : 'link' }
         >
-          <BsPersonFill
-            className={
-              isNavActive === '#about' ? 'linkActive' : ''
-            }
-          />
+          <BsPersonFill />
         </a>
         <a
           href='#project'
           onClick={ () => setIsNavActive('#project') }
-          className={ isNavActive === '#project' ? 'navActive' : 'link' }
+          className={ isNavActive === '#project' ? 'link__active' : 'link' }
         >
-          <HiCollection
-            className={
-              isNavActive === '#project' ? 'linkActive' : ''
-            }
-          />
+          <HiCollection />
         </a>
         <a
           href='#contact'
           onClick={ () => setIsNavActive('#contact') }
-          className={ isNavActive === '#contact' ? 'navActive' : 'link' }
+          className={ isNavActive === '#contact' ? 'link__active' : 'link' }
         >
-          <AiFillMessage
-            className={
-              isNavActive === '#contact' ? 'linkActive' : ''
-            }
-          />
+          <AiFillMessage />
         </a>
       </section>
 
