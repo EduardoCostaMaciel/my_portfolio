@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css';
+import './NavBar.css';
 
 // NavBar
 import { AiFillHome } from 'react-icons/ai';
