@@ -15,11 +15,12 @@
 :root {
   --color-bg: #1f1f38;
   --color-br-variant: #2c2c6c;
-  /* --color-primary: #4db5ff; */
   --color-primary: #4187f6;
   --color-primary-variant: rgba(77, 181, 255, 0.4);
   --color-white: #fff;
   --color-light: rgba(255, 255, 255, 0.6);
+  
+  --text-color-primary: #4db5ff;
 
   --transition: height 0.8s linear;
 
@@ -34,6 +35,19 @@ html {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+body {
+  background-color: var(--color-bg);
+
+  /* font-family: 'Patrick Hand', cursive, sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-light);
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
 }
 
 main {
@@ -62,13 +76,6 @@ a:focus {
 button {
   cursor: pointer;
   border-radius: 5px;
-}
-
-body {
-  background-color: var(--color-bg);
-
-  /* font-family: 'Patrick Hand', cursive, sans-serif; */
-  font-family: 'Poppins', sans-serif;
 }
 
 @media only screen and (max-width: 1024px) {

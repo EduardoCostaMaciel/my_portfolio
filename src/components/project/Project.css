@@ -1,0 +1,30 @@
+.project__container {
+  position: relative;
+  flex-direction: column;
+  left: 0;
+}
+
+.project__container h5 {
+  width: 8rem;
+  width: 100%;
+  position: absolute;
+  top: 1.4rem;
+  left: 0;
+
+  background-color: var(--color-br-variant);
+  border-radius: 50rem;
+
+  padding: 5px;
+}
+
+.project__container article {
+  height: 5rem;
+  width: 10rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
