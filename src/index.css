@@ -22,7 +22,7 @@
   
   --text-color-primary: #4db5ff;
 
-  --transition: height 0.8s linear;
+  --transition: all 0.5s linear;
 
   --container-width-lg: 75%;
   --container-width-md: 86%;
